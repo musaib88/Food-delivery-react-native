@@ -1,31 +1,19 @@
-import { StyleSheet } from 'react-native';
+import { View } from 'react-native';
+import products from '../../../assets/data/products'
+import MenuItem from '../../components/menuItem/MenuItem'
 
-import EditScreenInfo from '@/src/components/EditScreenInfo';
-import { Text, View } from '@/src/components/Themed';
 
-export default function TabOneScreen() {
+
+export default function MainMenu() {
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}> Hello Musaib</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="app/(tabs)/index.tsx" />
+    <View  >
+      <MenuItem product={products[3]}/>
+      <MenuItem product={products[2]}/>
+      <MenuItem product={products[5]}/>
+
+
+
     </View>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: '80%',
-  },
-});
