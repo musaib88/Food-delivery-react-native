@@ -1,10 +1,15 @@
 import { StyleSheet,View,Text,Image } from 'react-native';
 import Colors from '../../constants/Colors'
+import { Product } from '../../types';
+const DefaultImg="https://notjustdev-dummy.s3.us-east-2.amazonaws.com/food/peperoni.png"
 
-const MenuItem=({product})=>{
+type MenuItemPropsProduct={
+product:Product
+}
+const MenuItem=({product}:MenuItemPropsProduct)=>{
   return (
     <View style={styles.containerStyle} >
-    <Image  source={{uri:product.image}} style={styles.imgStyle} />
+    <Image  source={{uri:product.image || DefaultImg}} style={styles.imgStyle} />
     <Text style={styles.titleStyle}>{product.name}</Text>
     <Text style={styles.priceStyle}>${product.price}</Text>
   </View>
@@ -21,7 +26,8 @@ const styles = StyleSheet.create({
    justifyContent:"center",
    padding:10,
    borderRadius:10,
-   backgroundColor:"white"
+   backgroundColor:"white",
+   flex:1
 
   },
   
